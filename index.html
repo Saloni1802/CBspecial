@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- 🔥 THIS FIXES MOBILE VIEW -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For My One & Only ❤️</title>
@@ -72,9 +70,7 @@ p {
   font-size: 16px;
 }
 
-/* 📱 BUTTON CONTAINER */
 .buttons {
-  position: relative;
   margin-top: 40px;
 }
 
@@ -87,6 +83,7 @@ p {
   border: none;
   border-radius: 12px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 /* NO BUTTON */
@@ -97,10 +94,10 @@ p {
   color: white;
   border: none;
   border-radius: 10px;
-  position: absolute;
+  position: fixed;
+  top: 60%;
   left: 50%;
-  transform: translateX(-50%);
-  top: 60px;
+  transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
@@ -115,6 +112,19 @@ p {
   0% { transform: translateY(100vh); opacity: 0; }
   50% { opacity: 1; }
   100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* 💥 SHAKE EFFECT */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(5px, -5px); }
+  50% { transform: translate(-5px, 5px); }
+  75% { transform: translate(5px, 5px); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake {
+  animation: shake 0.3s;
 }
 </style>
 </head>
@@ -148,7 +158,7 @@ setTimeout(() => {
   document.getElementById("main").style.display = "block";
 }, 6500);
 
-// button logic
+// savage messages 😏
 let messages = [
   "Are you sure SJ deserves this? 🤨",
   "Think again habibi 😏",
@@ -159,32 +169,80 @@ let messages = [
   "You really said no?? 😳",
   "Testing me? brave 😤",
   "Final warning ⚠️",
-  "I will remember this 🙂"
+  "I will remember this 🙂",
+
+  "Excuse me?? audacity much 😭",
+  "Wrong… but confidently wrong 😌",
+  "You woke up and chose chaos huh 😏",
+  "Delulu level: expert 😌✨",
+  "Luxury taste but poor decisions 😏",
+  "You had ONE job 😭",
+  "Try again with brain ON pls 😤",
+  "This is a red flag moment 🚩😌",
+  "Okay drama king relax 😭",
+  "You really pressed that?? 😳",
+  "Not you embarrassing yourself voluntarily 😭",
+  "I’m pretending I didn’t see that 😏",
+  "You tried… that’s what matters 🥺",
+  "This is why we double check things 😭",
+  "My expectations were low but WOW 😭",
+  "Do you need a minute to rethink? 😤",
+  "Try again but this time… with sense 😭",
+  "That was a choice… not a good one 😏",
+  "I love the confidence, hate the result 😳",
+  "Not you doing this with full confidence 😭",
+  "I’m concerned but also entertained 😳",
+  "You had potential… where did it go 😭",
+  "This is why we don’t rush things 😌",
+  "It’s the confidence for me 😏",
+  "I wish I could unsee that 😭",
+  "I’m judging… silently but deeply 😏"
 ];
 
 let i = 0;
+let growth = 0;
 
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 
-noBtn.addEventListener("touchstart", moveButton);
-noBtn.addEventListener("mouseover", moveButton);
-
+// 🔥 move + shake + grow
 function moveButton() {
-  let x = Math.random() * (window.innerWidth - 100);
-  let y = Math.random() * (window.innerHeight - 150);
+  const btnWidth = noBtn.offsetWidth;
+  const btnHeight = noBtn.offsetHeight;
+  const padding = 20;
+
+  const maxX = window.innerWidth - btnWidth - padding;
+  const maxY = window.innerHeight - btnHeight - padding;
+
+  const minX = padding;
+  const minY = padding;
+
+  let x = Math.random() * (maxX - minX) + minX;
+  let y = Math.random() * (maxY - minY) + minY;
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
+  noBtn.style.transform = "none";
 
+  // 😏 savage text
   noBtn.innerText = messages[i % messages.length];
   i++;
 
-  let size = 18 + (i * 5);
-  yesBtn.style.fontSize = size + "px";
-  yesBtn.style.padding = (12 + i*2) + "px " + (28 + i*2) + "px";
+  // 💥 shake screen
+  document.body.classList.add("shake");
+  setTimeout(() => document.body.classList.remove("shake"), 300);
+
+  // 📈 grow YES button slowly
+  growth += 1;
+  let scale = 1 + (growth * 0.1);
+  yesBtn.style.transform = `scale(${scale})`;
 }
 
+// mobile + desktop
+noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("mouseover", moveButton);
+
+// YES click
 yesBtn.addEventListener("click", () => {
   document.getElementById("voice").play();
 
