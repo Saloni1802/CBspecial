@@ -83,7 +83,7 @@ p {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.4s ease; /* smooth cinematic growth */
+  transition: transform 0.4s ease;
   position: relative;
   z-index: 1;
 }
@@ -101,7 +101,7 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  z-index: 9999; /* prevents overlap bug */
+  z-index: 9999;
 }
 
 /* FLOAT */
@@ -151,7 +151,6 @@ p {
     <button id="no">No ❌</button>
   </div>
 
-  <!-- 🎧 YOUR AUDIO -->
   <audio id="voice" src="HBD music bayside-breeze.mp3" preload="auto"></audio>
 </div>
 
@@ -169,7 +168,7 @@ document.body.addEventListener("click", () => {
 
 // messages
 let messages = [
-   "Are you sure SJ deserves this? 🤨",
+  "Are you sure SJ deserves this? 🤨",
   "Think again habibi 😏",
   "Wrong answer 😤",
   "Dubai boy behave 😌",
@@ -202,8 +201,9 @@ let messages = [
   "This is why we don’t rush things 😌",
   "It’s the confidence for me 😏",
   "I wish I could unsee that 😭",
-  "I’m judging… silently but deeply 😏"
-  "Delulu level: expert 😌✨",];
+  "I’m judging… silently but deeply 😏",
+  "Delulu level: expert 😌✨"
+];
 
 let i = 0;
 let growth = 1;
@@ -226,11 +226,9 @@ function moveButton() {
   noBtn.innerText = messages[i % messages.length];
   i++;
 
-  // soft shake
   document.body.classList.add("shake");
   setTimeout(() => document.body.classList.remove("shake"), 300);
 
-  // slow cinematic growth
   growth += 0.08;
   yesBtn.style.transform = `scale(${growth})`;
 }
@@ -238,7 +236,7 @@ function moveButton() {
 noBtn.addEventListener("touchstart", moveButton);
 noBtn.addEventListener("mouseover", moveButton);
 
-// YES CLICK → CINEMATIC END
+// YES CLICK
 yesBtn.addEventListener("click", () => {
   const audio = document.getElementById("voice");
   audio.currentTime = 0;
