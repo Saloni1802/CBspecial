@@ -74,6 +74,7 @@ p {
   margin-top: 40px;
 }
 
+/* YES */
 #yes {
   padding: 12px 28px;
   font-size: 18px;
@@ -82,9 +83,12 @@ p {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.4s ease; /* smooth cinematic growth */
+  position: relative;
+  z-index: 1;
 }
 
+/* NO */
 #no {
   padding: 10px 18px;
   font-size: 14px;
@@ -97,8 +101,10 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
+  z-index: 9999; /* prevents overlap bug */
 }
 
+/* FLOAT */
 .float {
   position: fixed;
   font-size: 20px;
@@ -111,12 +117,12 @@ p {
   100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* 💥 SHAKE */
+/* 💥 SOFT SHAKE */
 @keyframes shake {
   0% { transform: translate(0, 0); }
-  25% { transform: translate(5px, -5px); }
-  50% { transform: translate(-5px, 5px); }
-  75% { transform: translate(5px, 5px); }
+  25% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  75% { transform: translate(2px, 2px); }
   100% { transform: translate(0, 0); }
 }
 
@@ -145,8 +151,8 @@ p {
     <button id="no">No ❌</button>
   </div>
 
-  <!-- 🎧 AUDIO -->
-  <audio id="voice" src="voice.mp3" preload="auto"></audio>
+  <!-- 🎧 YOUR AUDIO -->
+  <audio id="voice" src="HBD music bayside-breeze.mp3" preload="auto"></audio>
 </div>
 
 <script>
@@ -156,25 +162,13 @@ setTimeout(() => {
   document.getElementById("main").style.display = "block";
 }, 6500);
 
-// 🔥 TAP ANYWHERE = START MUSIC (once)
+// tap anywhere = start music
 document.body.addEventListener("click", () => {
-  const audio = document.getElementById("voice");
-  audio.play().catch(() => {});
+  document.getElementById("voice").play().catch(() => {});
 }, { once: true });
 
-// savage messages 😏
+// messages
 let messages = [
-  "Are you sure SJ deserves this? 🤨",
-  "Think again habibi 😏",
-  "Wrong answer 😤",
-  "Dubai boy behave 😌",
-  "Last chance 😭",
-  "Pookie please 🥺",
-  "You really said no?? 😳",
-  "Testing me? brave 😤",
-  "Final warning ⚠️",
-  "I will remember this 🙂",
-
   "Excuse me?? audacity much 😭",
   "Wrong… but confidently wrong 😌",
   "You woke up and chose chaos huh 😏",
@@ -182,43 +176,24 @@ let messages = [
   "Luxury taste but poor decisions 😏",
   "You had ONE job 😭",
   "Try again with brain ON pls 😤",
-  "Okay drama king relax 😭",
+  "This is a red flag moment 🚩😌",
   "You really pressed that?? 😳",
-  "Not you embarrassing yourself voluntarily 😭",
-  "I’m pretending I didn’t see that 😏",
-  "You tried… that’s what matters 🥺",
-  "This is why we double check things 😭",
-  "My expectations were low but WOW 😭",
-  "Do you need a minute to rethink? 😤",
-  "Try again but this time… with sense 😭",
-  "That was a choice… not a good one 😏",
-  "I love the confidence, hate the result 😳",
-  "Not you doing this with full confidence 😭",
-  "I’m concerned but also entertained 😳",
-  "You had potential… where did it go 😭",
-  "This is why we don’t rush things 😌",
-  "It’s the confidence for me 😏",
-  "I wish I could unsee that 😭",
   "I’m judging… silently but deeply 😏"
 ];
 
 let i = 0;
-let growth = 0;
+let growth = 1;
 
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 
-// move + shake + grow
 function moveButton() {
   const btnWidth = noBtn.offsetWidth;
   const btnHeight = noBtn.offsetHeight;
   const padding = 20;
 
-  const maxX = window.innerWidth - btnWidth - padding;
-  const maxY = window.innerHeight - btnHeight - padding;
-
-  let x = Math.random() * (maxX - padding) + padding;
-  let y = Math.random() * (maxY - padding) + padding;
+  let x = Math.random() * (window.innerWidth - btnWidth - padding) + padding;
+  let y = Math.random() * (window.innerHeight - btnHeight - padding) + padding;
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
@@ -227,49 +202,84 @@ function moveButton() {
   noBtn.innerText = messages[i % messages.length];
   i++;
 
-  // 💥 shake
+  // soft shake
   document.body.classList.add("shake");
   setTimeout(() => document.body.classList.remove("shake"), 300);
 
-  // 📈 grow YES
-  growth++;
-  let scale = 1 + (growth * 0.1);
-  yesBtn.style.transform = `scale(${scale})`;
+  // slow cinematic growth
+  growth += 0.08;
+  yesBtn.style.transform = `scale(${growth})`;
 }
 
 noBtn.addEventListener("touchstart", moveButton);
 noBtn.addEventListener("mouseover", moveButton);
 
-// YES click
+// YES CLICK → CINEMATIC END
 yesBtn.addEventListener("click", () => {
   const audio = document.getElementById("voice");
   audio.currentTime = 0;
   audio.play().catch(() => {});
 
   document.body.innerHTML = `
-    <h1 style="margin-top:100px; font-family:'Playfair Display'; color:#b30059;">
-      YAAAYYY 😍❤️
-    </h1>
-    <p style="font-size:20px;">Happy Birthday My Love 🎂✨</p>
-    <p style="font-size:16px;">From your SJ always 💖</p>
-    <p style="font-size:16px;">You chose wisely 😌💅</p>
-    <p style="font-size:16px;">Your gift = Me 😏</p>
-    <p style="font-size:14px;">Now call & love SJ ASAP 📞</p>
+    <style>
+      body {
+        background: black;
+        color: white;
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+      }
+
+      .fade {
+        opacity: 0;
+        animation: fadeIn 2s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
+
+      .title {
+        margin-top: 120px;
+        font-size: 42px;
+        color: #ff4d88;
+        text-shadow: 0 0 20px #ff4d88;
+      }
+
+      .text {
+        margin-top: 20px;
+        font-size: 20px;
+      }
+
+      .float {
+        position: fixed;
+        font-size: 24px;
+        animation: rise 5s linear infinite;
+      }
+
+      @keyframes rise {
+        0% { transform: translateY(100vh); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+      }
+    </style>
+
+    <div class="fade title">YAAAYYY 😍❤️</div>
+    <div class="fade text" style="animation-delay:1s;">Happy Birthday My Love 🎂✨</div>
+    <div class="fade text" style="animation-delay:2s;">From your SJ always 💖</div>
+    <div class="fade text" style="animation-delay:3s;">You chose wisely 😌💅</div>
+    <div class="fade text" style="animation-delay:4s;">Your gift = Me 😏</div>
+    <div class="fade text" style="animation-delay:5s;">Now call & love SJ ASAP 📞</div>
   `;
 
   setInterval(() => {
     let el = document.createElement("div");
     el.className = "float";
-
-    let items = ["💖","🍾","✨","🥂"];
-    el.innerText = items[Math.floor(Math.random() * items.length)];
-
-    el.style.left = Math.random() * window.innerWidth + "px";
-
+    let items = ["💖","✨","🥂","❤️"];
+    el.innerText = items[Math.floor(Math.random()*items.length)];
+    el.style.left = Math.random()*window.innerWidth + "px";
     document.body.appendChild(el);
-
-    setTimeout(() => el.remove(), 4000);
-  }, 200);
+    setTimeout(()=>el.remove(),5000);
+  },200);
 });
 </script>
 
