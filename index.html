@@ -15,7 +15,7 @@ body {
   overflow: hidden;
 }
 
-/* 🎬 INTRO */
+/* INTRO */
 #intro {
   position: fixed;
   width: 100%;
@@ -50,7 +50,7 @@ body {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* 💖 MAIN */
+/* MAIN */
 #main {
   display: none;
   text-align: center;
@@ -74,7 +74,6 @@ p {
   margin-top: 40px;
 }
 
-/* YES */
 #yes {
   padding: 12px 28px;
   font-size: 18px;
@@ -84,11 +83,8 @@ p {
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.4s ease;
-  position: relative;
-  z-index: 1;
 }
 
-/* NO */
 #no {
   padding: 10px 18px;
   font-size: 14px;
@@ -104,20 +100,10 @@ p {
   z-index: 9999;
 }
 
-/* FLOAT */
-.float {
-  position: fixed;
-  font-size: 20px;
-  animation: rise 4s linear infinite;
+.shake {
+  animation: shake 0.3s;
 }
 
-@keyframes rise {
-  0% { transform: translateY(100vh); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-10vh); opacity: 0; }
-}
-
-/* 💥 SOFT SHAKE */
 @keyframes shake {
   0% { transform: translate(0, 0); }
   25% { transform: translate(2px, -2px); }
@@ -125,23 +111,17 @@ p {
   75% { transform: translate(2px, 2px); }
   100% { transform: translate(0, 0); }
 }
-
-.shake {
-  animation: shake 0.3s;
-}
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
 <div id="intro">
   <div class="fadeText t1">To My One & Only ❤️</div>
   <div class="fadeText t2">From S 😌</div>
   <div class="fadeText t3">Happy Birthday, My Precious 🎂✨</div>
 </div>
 
-<!-- MAIN -->
 <div id="main">
   <h1>Choose wisely…</h1>
   <p>Your future depends on this 😌</p>
@@ -151,22 +131,18 @@ p {
     <button id="no">No ❌</button>
   </div>
 
-  <audio id="voice" src="HBD music bayside-breeze.mp3" preload="auto"></audio>
+  <!-- SAME FILE NAME (unchanged) -->
+  <audio id="voice" preload="auto">
+    <source src="HBD music bayside-breeze.mp3" type="audio/mpeg">
+  </audio>
 </div>
 
 <script>
-// show main
 setTimeout(() => {
   document.getElementById("intro").style.display = "none";
   document.getElementById("main").style.display = "block";
 }, 6500);
 
-// tap anywhere = start music
-document.body.addEventListener("click", () => {
-  document.getElementById("voice").play().catch(() => {});
-}, { once: true });
-
-// messages
 let messages = [
   "Are you sure SJ deserves this? 🤨",
   "Think again habibi 😏",
@@ -210,14 +186,18 @@ let growth = 1;
 
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
+const audio = document.getElementById("voice");
+
+function playAudio() {
+  audio.muted = false;
+  audio.play().catch(()=>{});
+}
 
 function moveButton() {
-  const btnWidth = noBtn.offsetWidth;
-  const btnHeight = noBtn.offsetHeight;
-  const padding = 20;
+  playAudio();
 
-  let x = Math.random() * (window.innerWidth - btnWidth - padding) + padding;
-  let y = Math.random() * (window.innerHeight - btnHeight - padding) + padding;
+  let x = Math.random() * (window.innerWidth - 100);
+  let y = Math.random() * (window.innerHeight - 50);
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
@@ -234,74 +214,17 @@ function moveButton() {
 }
 
 noBtn.addEventListener("touchstart", moveButton);
-noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
 
-// YES CLICK
 yesBtn.addEventListener("click", () => {
-  const audio = document.getElementById("voice");
-  audio.currentTime = 0;
-  audio.play().catch(() => {});
+  playAudio();
 
   document.body.innerHTML = `
-    <style>
-      body {
-        background: black;
-        color: white;
-        text-align: center;
-        font-family: 'Playfair Display', serif;
-      }
-
-      .fade {
-        opacity: 0;
-        animation: fadeIn 2s ease forwards;
-      }
-
-      @keyframes fadeIn {
-        to { opacity: 1; }
-      }
-
-      .title {
-        margin-top: 120px;
-        font-size: 42px;
-        color: #ff4d88;
-        text-shadow: 0 0 20px #ff4d88;
-      }
-
-      .text {
-        margin-top: 20px;
-        font-size: 20px;
-      }
-
-      .float {
-        position: fixed;
-        font-size: 24px;
-        animation: rise 5s linear infinite;
-      }
-
-      @keyframes rise {
-        0% { transform: translateY(100vh); opacity: 0; }
-        50% { opacity: 1; }
-        100% { transform: translateY(-10vh); opacity: 0; }
-      }
-    </style>
-
-    <div class="fade title">YAAAYYY! 😍❤️</div>
-    <div class="fade text" style="animation-delay:1s;">You chose me… growth is visible ✨</div>
-    <div class="fade text" style="animation-delay:2s;">From your SJ… the best decision you ever made 💖😌</div>
-    <div class="fade text" style="animation-delay:3s;">You chose wisely!..shocking but proud 😌💅</div>
-    <div class="fade text" style="animation-delay:4s;">Your gift = Me 😌✨ (non-refundable, premium edition)</div>
-    <div class="fade text" style="animation-delay:5s;">Now call & love SJ ASAP ..no negotiations 📞</div>
+    <h1 style="margin-top:120px;">YAAAYYY 😍❤️</h1>
+    <p>You chose me… good decision finally 😌✨</p>
+    <p>Your gift = Me 💅</p>
+    <p>Call SJ immediately 📞</p>
   `;
-
-  setInterval(() => {
-    let el = document.createElement("div");
-    el.className = "float";
-    let items = ["💖","✨","🥂","❤️"];
-    el.innerText = items[Math.floor(Math.random()*items.length)];
-    el.style.left = Math.random()*window.innerWidth + "px";
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(),5000);
-  },200);
 });
 </script>
 
