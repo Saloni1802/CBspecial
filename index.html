@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- 🔥 THIS FIXES MOBILE VIEW -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For My One & Only ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -25,8 +29,9 @@ body {
   justify-content: center;
   flex-direction: column;
   font-family: 'Playfair Display', serif;
-  font-size: 30px;
+  font-size: 22px;
   text-align: center;
+  padding: 20px;
   animation: fadeOut 2s ease 6s forwards;
 }
 
@@ -53,23 +58,30 @@ body {
   text-align: center;
   background: linear-gradient(135deg, #ffd1dc, #ffe6eb);
   height: 100vh;
-  padding-top: 100px;
+  padding: 80px 20px 20px;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
   color: #b30059;
-  font-size: 42px;
+  font-size: 32px;
 }
 
 p {
   color: #444;
-  font-size: 18px;
+  font-size: 16px;
 }
 
+/* 📱 BUTTON CONTAINER */
+.buttons {
+  position: relative;
+  margin-top: 40px;
+}
+
+/* YES BUTTON */
 #yes {
-  padding: 15px 35px;
-  font-size: 22px;
+  padding: 12px 28px;
+  font-size: 18px;
   background: #00b894;
   color: white;
   border: none;
@@ -77,20 +89,25 @@ p {
   cursor: pointer;
 }
 
+/* NO BUTTON */
 #no {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 18px;
+  font-size: 14px;
   background: #ff4d6d;
   color: white;
   border: none;
   border-radius: 10px;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60px;
   cursor: pointer;
 }
 
+/* FLOATING EMOJIS */
 .float {
   position: fixed;
-  font-size: 24px;
+  font-size: 20px;
   animation: rise 4s linear infinite;
 }
 
@@ -107,8 +124,8 @@ p {
 <!-- INTRO -->
 <div id="intro">
   <div class="fadeText t1">To My One & Only ❤️</div>
-  <div class="fadeText t2">From S 😌</div>
-  <div class="fadeText t3">Happy Birthday, My Precious 🎂✨</div>
+  <div class="fadeText t2">From CB 😌</div>
+  <div class="fadeText t3">Happy Birthday, Precious 🎂✨</div>
 </div>
 
 <!-- MAIN -->
@@ -116,10 +133,11 @@ p {
   <h1>Choose wisely…</h1>
   <p>Your future depends on this 😌</p>
 
-  <button id="yes">Yes 💚</button>
-  <button id="no">No ❌</button>
+  <div class="buttons">
+    <button id="yes">Yes 💚</button>
+    <button id="no">No ❌</button>
+  </div>
 
-  <!-- 🎧 ADD YOUR AUDIO FILE HERE -->
   <audio id="voice" src="voice.mp3"></audio>
 </div>
 
@@ -132,13 +150,13 @@ setTimeout(() => {
 
 // button logic
 let messages = [
-  "Are you sure SJ deserves this? 🤨",
+  "Are you sure CB deserves this? 🤨",
   "Think again habibi 😏",
   "Wrong answer 😤",
   "Dubai boy behave 😌",
   "Last chance 😭",
   "Pookie please 🥺",
-  "Your gift = Me 😏",
+  "You really said no?? 😳",
   "Testing me? brave 😤",
   "Final warning ⚠️",
   "I will remember this 🙂"
@@ -149,9 +167,12 @@ let i = 0;
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 
-noBtn.addEventListener("mouseover", () => {
+noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("mouseover", moveButton);
+
+function moveButton() {
   let x = Math.random() * (window.innerWidth - 100);
-  let y = Math.random() * (window.innerHeight - 50);
+  let y = Math.random() * (window.innerHeight - 150);
 
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
@@ -159,23 +180,23 @@ noBtn.addEventListener("mouseover", () => {
   noBtn.innerText = messages[i % messages.length];
   i++;
 
-  let size = 22 + (i * 8);
+  let size = 18 + (i * 5);
   yesBtn.style.fontSize = size + "px";
-  yesBtn.style.padding = (15 + i*2) + "px " + (35 + i*3) + "px";
-});
+  yesBtn.style.padding = (12 + i*2) + "px " + (28 + i*2) + "px";
+}
 
 yesBtn.addEventListener("click", () => {
   document.getElementById("voice").play();
 
   document.body.innerHTML = `
-    <h1 style="margin-top:120px; font-family:'Playfair Display'; color:#b30059;">
+    <h1 style="margin-top:100px; font-family:'Playfair Display'; color:#b30059;">
       YAAAYYY 😍❤️
     </h1>
-    <p style="font-size:22px;">Happy Birthday My Love 🎂✨</p>
-    <p style="font-size:18px;">From your SJ always 💖</p>
-    <p style="font-size:18px;">You chose wisely 😌💅</p>
-    <p style="font-size:18px;">Your gift = Me 😏</p>
-    <p style="font-size:16px;">Call SJ immediately 📞</p>
+    <p style="font-size:20px;">Happy Birthday My Love 🎂✨</p>
+    <p style="font-size:16px;">From your SJ always 💖</p>
+    <p style="font-size:16px;">You chose wisely 😌💅</p>
+    <p style="font-size:16px;">Your gift = Me 😏</p>
+    <p style="font-size:14px;">Call SJ immediately 📞</p>
   `;
 
   setInterval(() => {
