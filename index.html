@@ -1,217 +1,197 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8">
+<title>For My One & Only ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* 🎬 INTRO */
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  text-align: center;
+  animation: fadeOut 2s ease 6s forwards;
+}
+
+.fadeText {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+.t1 { animation-delay: 0s; }
+.t2 { animation-delay: 2s; }
+.t3 { animation-delay: 4s; }
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* 💖 MAIN */
+#main {
+  display: none;
+  text-align: center;
+  background: linear-gradient(135deg, #ffd1dc, #ffe6eb);
+  height: 100vh;
+  padding-top: 100px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: #b30059;
+  font-size: 42px;
+}
+
+p {
+  color: #444;
+  font-size: 18px;
+}
+
+#yes {
+  padding: 15px 35px;
+  font-size: 22px;
+  background: #00b894;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#no {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.float {
+  position: fixed;
+  font-size: 24px;
+  animation: rise 4s linear infinite;
+}
+
+@keyframes rise {
+  0% { transform: translateY(100vh); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
 </head>
+
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;For My One &amp; Only ❤️&lt;/title&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&amp;family=Poppins:wght@300&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Poppins', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* 🎬 INTRO SCREEN */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>#intro {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: black;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Playfair Display', serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation: fadeOut 2s ease 6s forwards;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.fadeText {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation: fadeIn 2s ease forwards;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.t1 { animation-delay: 0s; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.t2 { animation-delay: 2s; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.t3 { animation-delay: 4s; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes fadeIn {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>to { opacity: 1; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes fadeOut {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>to { opacity: 0; visibility: hidden; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* 💖 MAIN SCREEN */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>#main {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #ffd1dc, #ffe6eb);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-top: 100px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Playfair Display', serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #b30059;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 42px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #444;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>#yes {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px 35px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #00b894;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>#no {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #ff4d6d;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.float {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation: rise 4s linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes rise {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>0% { transform: translateY(100vh); opacity: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">      </span>50% { opacity: 1; }</p>
-<p class="p1"><span class="Apple-converted-space">      </span>100% { transform: translateY(-10vh); opacity: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- 🎬 INTRO --&gt;</p>
-<p class="p1">&lt;div id="intro"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="fadeText t1"&gt;To My One &amp; Only ❤️&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="fadeText t2"&gt;From CB 😌&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="fadeText t3"&gt;Happy Birthday, Precious 🎂✨&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- 💖 MAIN --&gt;</p>
-<p class="p1">&lt;div id="main"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Choose wisely…&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;p&gt;Your future depends on this 😌&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;button id="yes"&gt;Yes 💚&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;button id="no"&gt;No ❌&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;audio id="voice" src="voice.mp3"&gt;&lt;/audio&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">// ⏳ SHOW MAIN AFTER INTRO</p>
-<p class="p1">setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("intro").style.display = "none";</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("main").style.display = "block";</p>
-<p class="p1">}, 6500);</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1">// 😏 BUTTON LOGIC</p>
-<p class="p1">let messages = [</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"Are you sure CB deserves this? 🤨",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"Think again habibi 😏",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"Wrong answer 😤",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"Dubai boy behave 😌",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"Last chance 😭",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"Pookie please 🥺",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"You really said no?? 😳",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"Testing me? brave 😤",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"Final warning ⚠️",</p>
-<p class="p1"><span class="Apple-converted-space">  </span>"I will remember this 🙂"</p>
-<p class="p1">];</p>
-<p class="p2"><br></p>
-<p class="p1">let i = 0;</p>
-<p class="p2"><br></p>
-<p class="p1">const noBtn = document.getElementById("no");</p>
-<p class="p1">const yesBtn = document.getElementById("yes");</p>
-<p class="p2"><br></p>
-<p class="p1">noBtn.addEventListener("mouseover", () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let x = Math.random() * (window.innerWidth - 100);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let y = Math.random() * (window.innerHeight - 50);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>noBtn.style.left = x + "px";</p>
-<p class="p1"><span class="Apple-converted-space">  </span>noBtn.style.top = y + "px";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>noBtn.innerText = messages[i % messages.length];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>i++;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>let size = 22 + (i * 8);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>yesBtn.style.fontSize = size + "px";</p>
-<p class="p1"><span class="Apple-converted-space">  </span>yesBtn.style.padding = (15 + i*2) + "px " + (35 + i*3) + "px";</p>
-<p class="p1">});</p>
-<p class="p2"><br></p>
-<p class="p1">yesBtn.addEventListener("click", () =&gt; {</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("voice").play();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.body.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 style="margin-top:120px; font-family:'Playfair Display'; color:#b30059;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>YAAAYYY 😍❤️</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-size:22px;"&gt;Happy Birthday My Love 🎂✨&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-size:18px;"&gt;From your CB always 💖&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-size:18px;"&gt;You chose wisely 😌💅&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-size:18px;"&gt;Your gift = Me 😏&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-size:16px;"&gt;Call SJ immediately. 📞&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>setInterval(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let el = document.createElement("div");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.className = "float";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>let items = ["💖","🍾","✨","🥂"];</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.innerText = items[Math.floor(Math.random() * items.length)];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.style.left = Math.random() * window.innerWidth + "px";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.body.appendChild(el);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>setTimeout(() =&gt; el.remove(), 4000);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}, 200);</p>
-<p class="p2"><br></p>
-<p class="p1">});</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="fadeText t1">To My One & Only ❤️</div>
+  <div class="fadeText t2">From CB 😌</div>
+  <div class="fadeText t3">Happy Birthday, Precious 🎂✨</div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <h1>Choose wisely…</h1>
+  <p>Your future depends on this 😌</p>
+
+  <button id="yes">Yes 💚</button>
+  <button id="no">No ❌</button>
+
+  <audio id="voice" src="voice.mp3"></audio>
+</div>
+
+<script>
+// show main
+setTimeout(() => {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("main").style.display = "block";
+}, 6500);
+
+// button logic
+let messages = [
+  "Are you sure CB deserves this? 🤨",
+  "Think again habibi 😏",
+  "Wrong answer 😤",
+  "Dubai boy behave 😌",
+  "Last chance 😭",
+  "Pookie please 🥺",
+  "You really said no?? 😳",
+  "Testing me? brave 😤",
+  "Final warning ⚠️",
+  "I will remember this 🙂"
+];
+
+let i = 0;
+
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+noBtn.addEventListener("mouseover", () => {
+  let x = Math.random() * (window.innerWidth - 100);
+  let y = Math.random() * (window.innerHeight - 50);
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  noBtn.innerText = messages[i % messages.length];
+  i++;
+
+  let size = 22 + (i * 8);
+  yesBtn.style.fontSize = size + "px";
+  yesBtn.style.padding = (15 + i*2) + "px " + (35 + i*3) + "px";
+});
+
+yesBtn.addEventListener("click", () => {
+  document.getElementById("voice").play();
+
+  document.body.innerHTML = `
+    <h1 style="margin-top:120px; font-family:'Playfair Display'; color:#b30059;">
+      YAAAYYY 😍❤️
+    </h1>
+    <p style="font-size:22px;">Happy Birthday My Love 🎂✨</p>
+    <p style="font-size:18px;">From your CB always 💖</p>
+    <p style="font-size:18px;">You chose wisely 😌💅</p>
+    <p style="font-size:18px;">Your gift = Me 😏</p>
+    <p style="font-size:16px;">Call SJ immediately 📞</p>
+  `;
+
+  setInterval(() => {
+    let el = document.createElement("div");
+    el.className = "float";
+
+    let items = ["💖","🍾","✨","🥂"];
+    el.innerText = items[Math.floor(Math.random() * items.length)];
+
+    el.style.left = Math.random() * window.innerWidth + "px";
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 4000);
+  }, 200);
+});
+</script>
+
 </body>
 </html>
